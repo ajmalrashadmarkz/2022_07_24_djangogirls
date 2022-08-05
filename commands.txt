@@ -1,0 +1,75 @@
+		 		SETUP-Django&Git
+python -m venv myvenv
+myvenv\Scripts\activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+django-admin startproject mysite .
+
+1.Git SetUp --Initial
+	
+	add git-ignore file
+	
+	git init
+	git status
+	git config user.name "ajmalrashadmarkz"
+	git config user.email "ajmalrashadmarkz@gmail.com"
+	git add --
+	git commit -m "Base Django Files"
+	git branch
+	git remote add origin https://github.com/-----------------------------------------
+	git push -u origin master
+
+	Git Branch Renaming
+	    -git branch -m 01_Blog_Posting
+
+
+2.Git - Create a New Branch
+	git checkout -b 01_setup_model
+
+
+			Django-Setup
+
+3.Changing settings
+	TIME_ZONE = 'Asia/Calcutta'
+	LANGUAGE_CODE = 'en-us'
+	ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
+			DB-Setup
+4.create a database
+	python manage.py migrate
+
+5.Starting the web server
+	python manage.py runserver 9000
+
+			Django models
+6.Objects
+	6.1 Creating an application
+		python manage.py startapp blog
+
+	6.2 Add application in INSTALLED_APPS
+		INSTALLED_APPS = [
+			'blog',
+		]
+	6.3 Creating a blog post model
+	    -define all objects
+	    -from or import are lines that add some bits from other files.
+	    -class is a special keyword - defining an object.
+	    -Name of our model. Always start a class name with an uppercase letter.
+	    -Define the properties
+	    -Define function/method
+
+	6.4 Create tables for models in your database
+	    -add our new model to our database
+	        python manage.py makemigrations blog
+	    -prepared a migration file - apply to our database.
+	        python manage.py migrate blog
+
+                Django Admin
+7.Admin Panel
+    7.1 Register the model with admin.site.register()
+        -add, edit and delete the data - we will use Django admin.
+        -blog/admin.py
+            -import model
+            -register
+    7.2 create a superuser
+        -python manage.py createsuperuser
